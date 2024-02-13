@@ -60,3 +60,34 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+
+//crear una funcion createUsername q reciba  array de cuentas y 
+//devuelva un nuevo array con los nombre de usuario de cada cuenta
+//en minisculas y sin espacios
+//por ejemplo Juan Sanchez => js
+//const account1 = {
+ // owner: 'Juan Sánchez',
+ // movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  //interestRate: 1.2, // %
+ // pin: 1111,
+ //username :'js'
+
+
+ //uso map (nuevo array) o forEach (modificar el array original)
+
+ const createUsernames = function(accounts) {
+
+  accounts.forEach (function(){
+    accounts.username= account.owner //Juan Sanchez
+    .toLowerCase() //juan sanchez
+    .split('')//['ju','n sanchez']
+    .map((name)=>name[0])
+    join('')//js (lo contrario que split)
+console.log (username)
+
+
+  })
+  
+ }
+ createUsernames(accounts)
