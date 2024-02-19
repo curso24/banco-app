@@ -1,30 +1,24 @@
-import './App.css'
-import Welcome from './Welcome/Welcome'
-import Login from './Login/Login'
-import Summary from './Summary/Summary'
-import Movements from './Movements/Movements'
-import Balance from './Balance/Balance'
+import { useState } from 'react';
+import accounts from './cuentas';
+import './App.css';
+import Welcome from './Welcome/Welcome';
+import Login from './Login/Login';
+import Summary from './Summary/Summary';
+import Movements from './Movements/Movements';
+import Balance from './Balance/Balance';
 function App() {
+  const [account, setAccount] = useState(accounts[0]);
+  const { movements } = account;
   return (
     <>
       <nav>
-        <Welcome/>
-        <Login/>
-        
-       
-      </nav>
+        <Welcome />
+        <Login />
+      </nav>{' '}
       <main className="app">
-      <Balance/>
-      <Movements/>
-      <Summary/>
-      
-        
-
-        
-       
-
-        
-
+        <Balance movements={movements} />
+        <Movements />
+        <Summary movements={movements} />{' '}
         <div className="operation operation--transfer">
           <h2>Transfer money</h2>
           <form className="form form--transfer">
@@ -34,8 +28,7 @@ function App() {
             <label className="form__label">Transfer to</label>
             <label className="form__label">Amount</label>
           </form>
-        </div>
-
+        </div>{' '}
         <div className="operation operation--loan">
           <h2>Request loan</h2>
           <form className="form form--loan">
@@ -46,8 +39,7 @@ function App() {
             <button className="form__btn form__btn--loan">&rarr;</button>
             <label className="form__label form__label--loan">Amount</label>
           </form>
-        </div>
-
+        </div>{' '}
         <div className="operation operation--close">
           <h2>Close account</h2>
           <form className="form form--close">
@@ -61,14 +53,12 @@ function App() {
             <label className="form__label">Confirm user</label>
             <label className="form__label">Confirm PIN</label>
           </form>
-        </div>
-
+        </div>{' '}
         <p className="logout-timer">
           You will be logged out in <span className="timer">05:00</span>
         </p>
       </main>
     </>
-  )
+  );
 }
-
-export default App
+export default App;
