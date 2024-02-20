@@ -9,7 +9,7 @@ import Balance from './Balance/Balance';
 function App() {
   const [account, setAccount] = useState(accounts[3]);
   const { movements = [],owner:user='' } = account;
-
+console.log(movements,account)
   console.log(`El user que voy a mandar es ${user}`)
 
   //TAREAS
@@ -20,7 +20,7 @@ function App() {
 
   //2.Hacer los movimientos
   //recibe una propiedad que es el array de movimientos
-  //muestra un alista de movimientos que son un componente llamado Movement
+  //muestra una lista de movimientos que son un componente llamado Movement
   //que recibe una propiedad que es el movimiento
 
   //3.Hacer el componente Logim-> usar useref como ya hicimos para hacer el login
@@ -35,7 +35,7 @@ function App() {
      
       <main className="app">
         <Balance movements={movements} />
-        <Movements />
+        <Movements movements={movements} />
         <Summary movements={movements} />
 
         <div className="operation operation--transfer">
