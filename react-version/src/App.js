@@ -7,18 +7,37 @@ import Summary from './Summary/Summary';
 import Movements from './Movements/Movements';
 import Balance from './Balance/Balance';
 function App() {
-  const [account, setAccount] = useState(accounts[0]);
-  const { movements } = account;
+  const [account, setAccount] = useState(accounts[3]);
+  const { movements = [],owner:user='' } = account;
+
+  console.log(`El user que voy a mandar es ${user}`)
+
+  //TAREAS
+  //1 hacer el componente Welcome
+  //recibe una propiedad que sea el nombre de usuario
+  //si esta vacio muestra "log in to the started
+  //si esta lleno muestra"bienvenido,{nombre de usuario}"
+
+  //2.Hacer los movimientos
+  //recibe una propiedad que es el array de movimientos
+  //muestra un alista de movimientos que son un componente llamado Movement
+  //que recibe una propiedad que es el movimiento
+
+  //3.Hacer el componente Logim-> usar useref como ya hicimos para hacer el login
   return (
     <>
       <nav>
-        <Welcome />
+        <Welcome user={user}/>
         <Login />
-      </nav>{' '}
+      </nav>
+      
+     {user && (
+     
       <main className="app">
         <Balance movements={movements} />
         <Movements />
-        <Summary movements={movements} />{' '}
+        <Summary movements={movements} />
+
         <div className="operation operation--transfer">
           <h2>Transfer money</h2>
           <form className="form form--transfer">
@@ -58,6 +77,7 @@ function App() {
           You will be logged out in <span className="timer">05:00</span>
         </p>
       </main>
+      )}
     </>
   );
 }
