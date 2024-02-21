@@ -102,9 +102,11 @@ btnLogin.addEventListener('click', function (e) {
   // 1. no llamar al servidor!!
   e.preventDefault()
   // 2. Buscar cuenta de usuario y ver si existe
+
   const currentAccount = accounts.find(
     (account) => account.username === inputLoginUsername.value
-  ) // 1. recibir un objeto cuenta {pin: 1111, ...}
+  )
+   // 1. recibir un objeto cuenta {pin: 1111, ...}
   // 2. recibir undefined si no existe la cuenta
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     console.log('LOGIN CORRECTO')
